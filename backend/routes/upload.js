@@ -71,10 +71,17 @@ router.post('/image', upload.single('image'), async (req, res) => {
   }
 });
 
-// DELETE /api/upload/image/:publicId - Delete image
-router.delete('/image/:publicId', async (req, res) => {
+// DELETE /api/upload/image?publicId=dashboard-uploads/image-id
+router.delete('/image', async (req, res) => {
   try {
-    const { publicId } = req.params;
+    const { publicId } = req.query;
+    
+    if (!publicId) {
+      return res.status(400).json({
+        success: false,
+        error: 'publicId query parameter is required'
+      });
+    }
     
     const result = await cloudinary.uploader.destroy(publicId);
     

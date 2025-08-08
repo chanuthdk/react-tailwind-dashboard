@@ -20,7 +20,7 @@ const corsOptions = {
         process.env.FRONTEND_URL || 'http://localhost:3000',
         'https://localhost:3000',
     ],
-    Credentials: true,
+    credentials: true,
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.json());
 
 // MongoDB connection
-if(!process.env.MONGODB_URI) {
+if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('MongoDB connected successfully');
@@ -43,8 +43,10 @@ if(!process.env.MONGODB_URI) {
 }
 
 // Routes
-app.use('/api/comments', require('./routes/comments'));
-app.use('/api/upload', require('./routes/upload'));
+const componentsRouter = require('./routes/components');
+const uploadRouter = require('./routes/upload');
+app.use('/api/components', componentsRouter);
+app.use('/api/upload', uploadRouter);
 
 //health check route
 app.get('/health', (req, res) => {
@@ -66,7 +68,7 @@ app.use((err, req, res, next) => {
 });
 
 //404 error handling
-app.use('*', (req, res) => {
+app.use((req, res) => {
     res.status(404).json({error:'Route not found'});
 });
 

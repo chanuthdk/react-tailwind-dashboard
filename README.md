@@ -8,8 +8,7 @@ This project demonstrates a clean UI, reusable components, and scalable code str
 - ⚡ **Vite** for fast builds and hot reloading
 - 🎨 **Tailwind CSS** for styling
 - 📱 Fully responsive layout
-- 🧩 Reusable components (cards, buttons, tables, etc.)
-- 🌗 Light/Dark mode support *(if applicable)*
+- 🧩 Reusable components (cards, buttons, etc.)
 - 🔄 Sample data handling and API integration structure
 
 ## 🛠 Tech Stack
@@ -17,13 +16,17 @@ This project demonstrates a clean UI, reusable components, and scalable code str
 - **Frontend**: React, Tailwind CSS
 - **Build Tool**: Vite
 - **Language**: JavaScript / JSX
-- **Backend (Optional)**: Node.js + Express + MongoDB (if integrated)
+- **Backend (Optional)**: Node.js + Express + MongoDB
+
+## 📸 Screenshots
+<img width="1915" height="927" alt="image" src="https://github.com/user-attachments/assets/5f73a348-07c5-4ed9-ab58-94442194cb0e" />
+
 
 ## 📂 Folder Structure
 
-frontend/
-├── public/ # Static assets
-├── src/
+- frontend/
+- ├── public/ # Static assets
+- ├── src/
 │ ├── assets/ # Images and icons
 │ ├── components/ # Reusable UI components
 │ ├── pages/ # Dashboard pages
@@ -42,3 +45,56 @@ backend/
    ```bash
    git clone https://github.com/chanuthdk/react-tailwind-dashboard.git
    cd react-tailwind-dashboard
+Install dependencies
+
+Frontend:
+
+bash
+Copy
+Edit
+cd frontend
+npm install
+Backend:
+
+bash
+Copy
+Edit
+cd backend
+npm install
+Run the development server
+
+Backend:
+
+bash
+Copy
+Edit
+cd backend
+npm run dev
+Frontend:
+
+bash
+Copy
+Edit
+cd frontend
+npm run dev
+Open in browser
+
+arduino
+Copy
+Edit
+http://localhost:5173
+⚙️ Configuration
+Update backend .env file:
+
+env
+Copy
+Edit
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+Update frontend API endpoints in relevant service files.
+
+
+
+
+Author: Chanuth Dewnaka
+Made with ❤️ using React & Tailwind.

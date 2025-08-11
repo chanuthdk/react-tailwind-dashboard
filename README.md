@@ -20,6 +20,7 @@ This project demonstrates a clean UI, reusable components, and scalable code str
 
 ## 📸 Screenshots
 <img width="1915" height="927" alt="image" src="https://github.com/user-attachments/assets/5f73a348-07c5-4ed9-ab58-94442194cb0e" />
+<img width="1913" height="939" alt="image" src="https://github.com/user-attachments/assets/4325a6ef-a97e-497c-af16-51b591fb0408" />
 
 
 ## 📂 Folder Structure

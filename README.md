@@ -15,7 +15,7 @@ This is a dynamic website built with **React**, **Tailwind CSS**, and powered by
 - **Frontend**: React, Tailwind CSS
 - **Build Tool**: Vite
 - **Language**: JavaScript / JSX
-- **Backend **: Node.js + Express + MongoDB
+- **Backend**: Node.js + Express + MongoDB
 
 ## 📸 Screenshots
 <img width="1915" height="927" alt="image" src="https://github.com/user-attachments/assets/5f73a348-07c5-4ed9-ab58-94442194cb0e" />
@@ -103,4 +103,4 @@ react-tailwind-dashboard/
      PORT=5000
      MONGO_URI=your_mongodb_connection_string
      ```
-
+**Built with React & Tailwind CSS by Chanuth🙃**

@@ -1,10 +1,11 @@
+const mongoose = require('mongoose');
 const Component = require('../models/Component');
 
-// In-memory storage fallback
+//in-memory storage fallback
 let memoryStorage = {
   header: {
-    title: 'My Awesome Website',
-    image: 'https://via.placeholder.com/80x80/4F46E5/FFFFFF?text=LOGO'
+    title: 'React Tailwind Dashboard',
+    image: 'https://placehold.co/80x80/4F46E5/FFFFFF?text=LOGO'
   },
   navbar: {
     links: [
@@ -14,17 +15,17 @@ let memoryStorage = {
     ]
   },
   footer: {
-    email: 'contact@example.com',
-    phone: '+1 (555) 123-4567',
-    address: '123 Main St, City, State 12345'
+    email: 'chauthdk@gmail.com',
+    phone: '+94 76 040 8896',
+    address: '123 Street, City, Province'
   }
 };
 
-// Get components data
+//get components data
 const getComponents = async (req, res) => {
   try {
     if (process.env.MONGODB_URI && mongoose.connection.readyState === 1) {
-      // Use MongoDB
+      //use mongoDB
       let component = await Component.findOne().sort({ createdAt: -1 });
       
       if (!component) {
@@ -42,7 +43,7 @@ const getComponents = async (req, res) => {
         source: 'database'
       });
     } else {
-      // Use memory storage
+      //use memory storage
       res.json({
         success: true,
         data: memoryStorage,
@@ -59,12 +60,12 @@ const getComponents = async (req, res) => {
   }
 };
 
-// Save components data
+//save components data
 const saveComponents = async (req, res) => {
   try {
     const { header, navbar, footer } = req.body;
 
-    // Validation
+    //validate
     if (!header || !navbar || !footer) {
       return res.status(400).json({
         success: false,
@@ -84,7 +85,7 @@ const saveComponents = async (req, res) => {
     const componentData = { header, navbar, footer };
 
     if (process.env.MONGODB_URI && mongoose.connection.readyState === 1) {
-      // Save to MongoDB
+      //save to mongoDB
       const component = new Component(componentData);
       const savedComponent = await component.save();
       
@@ -99,7 +100,7 @@ const saveComponents = async (req, res) => {
         source: 'database'
       });
     } else {
-      // Save to memory
+      //save to memory
       memoryStorage = componentData;
       
       res.json({
@@ -129,13 +130,13 @@ const saveComponents = async (req, res) => {
   }
 };
 
-// Reset components to default
+//reset components to default
 const resetComponents = async (req, res) => {
   try {
     const defaultData = {
       header: {
-        title: 'My Awesome Website',
-        image: 'https://via.placeholder.com/80x80/4F46E5/FFFFFF?text=LOGO'
+        title: 'React Tailwind Dashboard',
+        image: 'https://placehold.co/80x80/4F46E5/FFFFFF?text=LOGO'
       },
       navbar: {
         links: [
@@ -145,9 +146,9 @@ const resetComponents = async (req, res) => {
         ]
       },
       footer: {
-        email: 'contact@example.com',
-        phone: '+1 (555) 123-4567',
-        address: '123 Main St, City, State 12345'
+        email: 'chauthdk@gmail.com',
+        phone: '+94 76 040 8896',
+        address: '123 Street, City, Province'
       }
     };
 

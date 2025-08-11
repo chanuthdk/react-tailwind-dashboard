@@ -28,14 +28,14 @@ const ComponentSchema = new mongoose.Schema({
       required: [true, 'Header title is required'],
       trim: true,
       maxlength: [100, 'Title cannot exceed 100 characters'],
-      default: 'My Awesome Website'
+      default: 'React Tailwind Dashboard'
     },
     image: {
       type: String,
-      default: 'https://via.placeholder.com/80x80/4F46E5/FFFFFF?text=LOGO',
+      default: 'https://placehold.co/80x80/4F46E5/FFFFFF?text=LOGO',
       validate: {
         validator: function(v) {
-          return /^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)$/i.test(v) || v.includes('placeholder') || v.includes('cloudinary');
+          return /^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)$/i.test(v) || v.includes('placehold.co') || v.includes('cloudinary');
         },
         message: 'Please enter a valid image URL'
       }

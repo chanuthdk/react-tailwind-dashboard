@@ -13,8 +13,8 @@ export const useComponentData = () => {
 
 export const ComponentProvider = ({ children }) => {
   const [headerData, setHeaderData] = useState({
-    title: 'My Awesome Website',
-    image: 'https://via.placeholder.com/80x80/4F46E5/FFFFFF?text=LOGO'
+    title: 'React Tailwind Dashboard',
+    image: 'https://placehold.co/80x80/4F46E5/FFFFFF?text=LOGO'
   });
 
   const [navbarData, setNavbarData] = useState({
@@ -26,20 +26,20 @@ export const ComponentProvider = ({ children }) => {
   });
 
   const [footerData, setFooterData] = useState({
-    email: 'contact@example.com',
-    phone: '+1 (555) 123-4567',
-    address: '123 Main St, City, State 12345'
+    email: 'chauthdk@gmail.com',
+    phone: '+94 76 040 8896',
+    address: '123 Street, City, Province'
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Load data from backend on mount
+  //load data from backend on mount
   useEffect(() => {
     loadComponentsFromAPI();
   }, []);
 
-  // Also load from localStorage as backup
+  //also load from localStorage as backup
   useEffect(() => {
     const savedData = localStorage.getItem('componentData');
     if (savedData) {
@@ -54,7 +54,7 @@ export const ComponentProvider = ({ children }) => {
     }
   }, []);
 
-  // Save to localStorage whenever data changes (bonus feature)
+  //save to localStorage
   useEffect(() => {
     const dataToSave = {
       header: headerData,
@@ -64,7 +64,7 @@ export const ComponentProvider = ({ children }) => {
     localStorage.setItem('componentData', JSON.stringify(dataToSave));
   }, [headerData, navbarData, footerData]);
 
-  // Load components from API
+  //load components from API
   const loadComponentsFromAPI = async () => {
     try {
       setLoading(true);
@@ -84,7 +84,7 @@ export const ComponentProvider = ({ children }) => {
     }
   };
 
-  // Save all components to API
+  //save components to API
   const saveComponentsToAPI = async () => {
     try {
       setLoading(true);
@@ -112,7 +112,7 @@ export const ComponentProvider = ({ children }) => {
     }
   };
 
-  // Reset all components
+  //reset all components
   const resetComponents = async () => {
     try {
       setLoading(true);
@@ -138,19 +138,19 @@ export const ComponentProvider = ({ children }) => {
   };
 
   const value = {
-    // Data
+    //data
     headerData,
     navbarData,
     footerData,
     loading,
     error,
     
-    // Setters
+    //setters
     setHeaderData,
     setNavbarData,
     setFooterData,
-    
-    // API functions
+
+    //API functions
     loadComponentsFromAPI,
     saveComponentsToAPI,
     resetComponents,

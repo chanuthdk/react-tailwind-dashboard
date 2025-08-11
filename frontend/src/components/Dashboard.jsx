@@ -21,7 +21,7 @@ const Dashboard = () => {
   const [saveStatus, setSaveStatus] = useState('');
   const fileInputRef = useRef(null);
 
-  // Handle image preview before upload (Bonus feature)
+  //image preview before upload
   const handleImagePreview = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -33,19 +33,19 @@ const Dashboard = () => {
     }
   };
 
-  // Handle image upload to Cloudinary
+  //handle image upload
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Show preview first
+    //show preview
     handleImagePreview(e);
 
     setIsUploading(true);
     setUploadProgress(0);
     setSaveStatus('');
 
-    // Simulate upload progress
+    //upload simulation
     const progressInterval = setInterval(() => {
       setUploadProgress(prev => {
         if (prev >= 90) {
@@ -81,22 +81,22 @@ const Dashboard = () => {
     }
   };
 
-  // Handle navbar link changes
+  //navbar link change handler
   const handleNavbarChange = (index, field, value) => {
     const updatedLinks = [...navbarData.links];
     updatedLinks[index] = { ...updatedLinks[index], [field]: value };
     setNavbarData({ ...navbarData, links: updatedLinks });
   };
 
-  // Save all data
+  //save components data
   const handleSaveAll = async () => {
     setSaveStatus('Saving...');
     const result = await saveComponentsToAPI();
     
     if (result.success) {
-      setSaveStatus('✅ All changes saved successfully!');
+      setSaveStatus('All changes saved successfully!');
     } else {
-      setSaveStatus('❌ Failed to save changes: ' + result.message);
+      setSaveStatus('Failed to save changes: ' + result.message);
     }
     
     setTimeout(() => setSaveStatus(''), 4000);
@@ -109,9 +109,9 @@ const Dashboard = () => {
       const result = await resetComponents();
       
       if (result.success) {
-        setSaveStatus('✅ Components reset successfully!');
+        setSaveStatus('Components reset successfully!');
       } else {
-        setSaveStatus('❌ Failed to reset components: ' + result.message);
+        setSaveStatus('Failed to reset components: ' + result.message);
       }
       
       setTimeout(() => setSaveStatus(''), 4000);
@@ -121,13 +121,9 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8">
       <div className="container mx-auto px-4">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          {/* Dashboard Header */}
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">{/*dashboard header*/}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-6">
             <h1 className="text-4xl font-bold">Website Dashboard</h1>
-            <p className="text-blue-100 mt-2 text-lg">
-              Edit your website components in real-time • Changes auto-save to localStorage
-            </p>
             {saveStatus && (
               <div className="mt-3 text-sm bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 {saveStatus}
@@ -136,8 +132,7 @@ const Dashboard = () => {
           </div>
 
           <div className="p-8">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Header Settings */}
+            <div className="grid lg:grid-cols-2 gap-8"> {/*header settings*/}
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                   <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">1</span>
@@ -158,15 +153,14 @@ const Dashboard = () => {
                   
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">Logo Image</label>
-                    <div className="space-y-4">
-                      {/* Current Image Preview */}
+                    <div className="space-y-4">{/*current image preview*/}
                       <div className="flex items-center space-x-4">
                         <img
                           src={previewImage || headerData.image}
                           alt="Logo Preview"
                           className="w-16 h-16 rounded-xl object-cover border-2 border-gray-200 shadow-sm"
                           onError={(e) => {
-                            e.target.src = 'https://via.placeholder.com/80x80/4F46E5/FFFFFF?text=LOGO';
+                            e.target.src = 'https://placehold.co/80x80/4F46E5/FFFFFF?text=LOGO';
                           }}
                         />
                         <div className="text-sm text-gray-600">
@@ -175,7 +169,7 @@ const Dashboard = () => {
                         </div>
                       </div>
                       
-                      {/* Upload Area */}
+                      {/*upload area*/}
                       <div
                         className={`
                           border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all duration-300
@@ -220,7 +214,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              {/* Navbar Settings */}
+              {/*navbar settings*/}
               <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                   <span className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">2</span>
@@ -259,7 +253,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Footer Settings */}
+            {/*footer settings*/}
             <div className="mt-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                 <span className="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">3</span>
@@ -303,14 +297,8 @@ const Dashboard = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-8 bg-gray-50 rounded-xl p-6 flex justify-between items-center">
-              <div className="text-sm text-gray-600">
-                <p className="font-medium">💡 Pro Tips:</p>
-                <p>• Changes are automatically saved to localStorage</p>
-                <p>• Click "Save to Server" to persist changes permanently</p>
-              </div>
-              
-              <div className="flex space-x-4">
+            <div className="mt-8 bg-gray-50 rounded-xl p-6 flex justify-end items-center">
+              <div className="flex space-x-4" >
                 <button
                   onClick={handleReset}
                   disabled={loading}

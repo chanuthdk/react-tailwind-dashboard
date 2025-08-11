@@ -15,7 +15,7 @@ function App() {
   return (
     <ComponentProvider>
       <div className="min-h-screen bg-gray-50">
-        {/* View Toggle Button */}
+        {/*view toggle button*/}
         <button
           onClick={toggleView}
           className="fixed top-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all font-medium"
@@ -24,18 +24,18 @@ function App() {
         </button>
 
         {currentView === 'website' ? (
-          // Website View
+          //website view
           <div>
             <Header />
             <Navbar />
             
-            {/* Main Content */}
+            {/*main content*/}
             <main className="container mx-auto px-4 py-16">
               <div className="max-w-4xl mx-auto">
                 <div className="bg-white rounded-2xl shadow-xl p-12">
                   <div className="text-center mb-12">
                     <h2 className="text-5xl font-bold text-gray-800 mb-6">
-                      Welcome to Our Platform
+                      Welcome to home page!
                     </h2>
                     <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
                       This is a dynamic website built with React, Tailwind CSS, and powered by a Node.js backend. 
@@ -74,7 +74,7 @@ function App() {
                       onClick={toggleView}
                       className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all font-semibold text-lg shadow-lg"
                     >
-                      🎨 Try the Dashboard
+                      Try the Dashboard
                     </button>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ function App() {
             <Footer />
           </div>
         ) : (
-          // Dashboard View
+          //dashboard view
           <Dashboard />
         )}
       </div>

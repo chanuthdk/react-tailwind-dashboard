@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white py-12 mt-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Contact Information */}
+          {/*contact info*/}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
             <div className="space-y-4">
@@ -50,43 +50,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Support</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
-            </ul>
-          </div>
-          
-          {/* Social Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-            <div className="flex space-x-3">
-              <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <span className="sr-only">Facebook</span>
-                <span className="text-sm font-bold">f</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors">
-                <span className="sr-only">Twitter</span>
-                <span className="text-sm font-bold">T</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
-                <span className="sr-only">Instagram</span>
-                <span className="text-sm font-bold">I</span>
-              </a>
-            </div>
-          </div>
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} My Website. All rights reserved. 
-            <span className="mx-2">|</span>
-            Built with React & Tailwind CSS
+            Built with React & Tailwind CSS by Chanuth🙃
           </p>
         </div>
       </div>
